@@ -73,13 +73,13 @@ let dapet = xx.result
 }
 
 if (command == 'happymod') {
-let f = await fetch(`https://dhn-api.herokuapp.com/api/apk/happymod?apps=${text}&apikey=4ca83deeb14d61d16cf0`)
+let f = await fetch(`https://api.ibeng.tech/api/download/happymod?query=${text}&apikey=ibeng`)
 let xx = await f.json()
 let dapet = xx.result
 	let row = Object.values(dapet).map((v, index) => ({
-		title: htjava + '📌 ' + v.apps_name,
-		description: '\n⌚ Version: ' + noteks + '\n⏲️ Rate: ' + v.apps_rate + '\n👁️ View: ' + v.apps_views + '\n📎 Url: ' + v.apps_linkdl,
-		rowId: usedPrefix + 'ss ' + v.apps_linkdl
+		title: htjava + '📌 ' + v.judul,
+		description: '\n⏲️ Rate: ' + v.ranting + '\n📎 Url: ' + v.link,
+		rowId: usedPrefix + 'ss ' + v.link
 	}))
 	let button = {
 		buttonText: `☂️ ${command} Search Disini ☂️`,

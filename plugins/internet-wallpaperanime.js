@@ -1,14 +1,8 @@
 import fetch from 'node-fetch'
 
-let handler = async (m, { conn }) => {
-    try {
-        let res = await fetch(global.API('xteam', '/randomimage/wpmobile', {}, 'APIKEY'))
-        if (res.status != 200) throw await res.text()
-        let img = await res.buffer()
-        conn.sendFile(m.chat, img, '', '*Wibu Stress*', m, false, { thumbnail: Buffer.alloc(0) })
-    } catch (e) {
-        throw `Limit apikey habis atau error!`
-    }
+let handler = async (m, { conn, command }) => {
+	let url = 'https://api.ibeng.tech/api/wallpaper/anime?apikey=ibeng'
+	conn.sendButton(m.chat, 'Nih', botdate, await(await fetch(url)).buffer(), [['🔁Next🔁',`.${command}`]],m)
 }
 handler.help = ['wallpaperanime']
 handler.tags = ['internet']

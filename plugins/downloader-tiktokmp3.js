@@ -34,7 +34,7 @@ const time = moment.tz('Asia/Jakarta').format('HH')
   })
   let bear = '9b95802c6f20'
   let bearr = 'ngYnxpRi'
-  let url = await fetch(`https://saipulanuar.ga/api/download/tiktok2?apikey=${bearr}&url=${args[0]}`)
+  let url = await fetch(`https://saipulanuar.ga/api/download/tiktok2?url=${args[0]}`)
   let json = await url.json()
     if (url.status !== 200) throw await url.text()
     if (!json.status) throw json

@@ -5,7 +5,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 	let user = global.db.data.users[m.sender]
 	if (user.age < 18) throw 'umur kamu belum cukup dek!';
 	try {
-		let res = await fetch(`https://malesin.xyz/xnxxdl?url=${text}`)
+		let res = await fetch(`https://api.zahwazein.xyz/downloader/xnxx?apikey=f9fccfcff1&url=${text}`)
 		if (res.status !== 200) throw 'Nice'
     let w = await res.json()
     let x = w.result
@@ -23,9 +23,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 		throw e;
 	}
 }
-handler.help = ["xnxxdl", "dlxnxx","xnxx"].map(v => v + ' <url>')
+handler.help = ["xnxxdl"].map(v => v + ' <url>')
 handler.tags = ["downloader"]
-handler.command = /^(xnxxdl|dlxnxx)$/i
+handler.command = /^(xnxxdl)$/i
 handler.register = true
 handler.premium = true
 
